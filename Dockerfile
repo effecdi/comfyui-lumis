@@ -141,6 +141,11 @@ RUN if [ "$MODEL_TYPE" = "z-image-turbo" ]; then \
       wget -q --header="Authorization: Bearer ${HUGGINGFACE_ACCESS_TOKEN}" -O models/model_patches/Z-Image-Turbo-Fun-Controlnet-Union.safetensors https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union.safetensors; \
     fi
 
+# Download Korean webtoon LoRA (Lumis custom)
+RUN mkdir -p models/loras && \
+    wget -q -O models/loras/manwha_style.safetensors \
+    "https://huggingface.co/Knkchn/manhwa-flux-lora/resolve/main/manwha_style.safetensors"
+
 # Stage 3: Final image
 FROM base AS final
 
