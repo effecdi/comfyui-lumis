@@ -36,8 +36,6 @@ jobs:
         with:
           context: .
           push: true
-          build-args: |
-            MODEL_TYPE=flux1-dev-fp8
           tags: |
             ghcr.io/effecdi/comfyui-lumis:latest
           cache-from: type=gha
